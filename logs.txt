@@ -1,0 +1,13 @@
+2022-08-13 23:01:24,262 INFO c.m.b.k.Log [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] 3097454713,100.0 TRY deposited
+2022-08-13 23:02:52,838 INFO c.m.b.k.Log [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] 3097454713,100.0 TRY deposited
+2022-08-20 00:01:38,866 INFO c.m.b.k.Log [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] 7105182663,100.0 USD deposited
+2022-08-20 00:05:01,162 INFO c.m.b.k.Log [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] 8378933558,12.0 USD deposited
+2022-08-20 00:05:05,873 INFO c.m.b.k.Log [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] 8378933558,12.0 USD deposited
+2022-08-20 00:05:09,720 INFO c.m.b.k.Log [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] 8378933558,21.0 USD deposited
+2022-08-20 00:05:15,925 INFO c.m.b.k.Log [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] 8378933558,21123.0 USD deposited
+2022-08-20 00:06:04,343 INFO c.m.b.k.Log [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] 8378933558,12.0 USD deposited
+2022-08-20 00:06:08,584 INFO c.m.b.k.Log [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] 8378933558,23.0 USD deposited
+2022-08-20 00:08:08,982 INFO c.m.b.k.Log [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] 20.0 USD , 7105182663 to 3097454713: transferred
+2022-08-20 00:08:23,940 INFO c.m.b.k.Log [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] 20.0 USD , 7105182663 to 3097454713: transferred
+2022-08-20 00:09:02,542 INFO c.m.b.k.Log [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] 20.0 USD , 5821660241 to 3097454713: transferred
+2022-08-20 00:13:07,310 INFO c.m.b.k.Log [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] 21203.0 USD , 8378933558 to 7105182663: transferred
