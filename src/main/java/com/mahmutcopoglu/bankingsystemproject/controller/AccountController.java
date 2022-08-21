@@ -124,11 +124,34 @@ public class AccountController {
         }
     }
 
-    @GetMapping("/accounts")
+    @GetMapping("/accounts/user")
     private ResponseEntity<?> getUserAccounts(){
-        List<Account> accounts = this.accountService.getUserAccounts();
-        return ResponseEntity.ok().body(accounts);
+        List<Account> accounts = this.accountService.getLoginUserAccounts();
+        AccountsResponse userAccountsResponse = new AccountsResponse();
+        userAccountsResponse.setSuccess(true);
+        userAccountsResponse.setData(accounts);
+        return ResponseEntity.ok().body(userAccountsResponse);
     }
+
+    @GetMapping("/accounts/user/{id}")
+    private ResponseEntity<?> getUserAccountsByUserId(@PathVariable int id){
+        List<Account> accounts = this.accountService.getUserAccounts(id);
+        AccountsResponse userAccountsResponse = new AccountsResponse();
+        userAccountsResponse.setSuccess(true);
+        userAccountsResponse.setData(accounts);
+        return ResponseEntity.ok().body(userAccountsResponse);
+    }
+
+    @GetMapping("/accounts")
+    private ResponseEntity<?> getAllAccounts(){
+        List<Account> accounts = this.accountService.getAllAccounts();
+        AccountsResponse accountsResponse = new AccountsResponse();
+        accountsResponse.setSuccess(true);
+        accountsResponse.setData(accounts);
+        return ResponseEntity.ok().body(accountsResponse);
+    }
+
+
 
 
 

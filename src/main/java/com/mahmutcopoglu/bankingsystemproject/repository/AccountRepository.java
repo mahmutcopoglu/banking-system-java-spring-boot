@@ -1,6 +1,5 @@
 package com.mahmutcopoglu.bankingsystemproject.repository;
 
-import com.mahmutcopoglu.bankingsystemproject.controller.AccountController;
 import com.mahmutcopoglu.bankingsystemproject.models.Account;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -23,6 +22,8 @@ public interface AccountRepository {
     void transferMoney(double balance, int accountId, Date date);
 
     List<Account> findByUserId(int userId);
+
+    List<Account> getAllAccounts();
 
 
 }

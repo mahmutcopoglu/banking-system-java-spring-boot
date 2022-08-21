@@ -15,6 +15,5 @@ public class User {
     private String password;
     private boolean enabled;
     private String authorities;
-    private List<Account> accounts;
 
 }

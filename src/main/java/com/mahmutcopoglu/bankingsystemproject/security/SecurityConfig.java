@@ -6,7 +6,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,12 +15,10 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -60,9 +57,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/login","/register")
                 .permitAll()
-                .antMatchers(HttpMethod.POST,"/users/**").hasAuthority("ACTIVATE_DEACTIVATE_USER")
-                .antMatchers(HttpMethod.GET,"/user/**").hasAuthority("ACTIVATE_DEACTIVATE_USER")
-                .antMatchers(HttpMethod.DELETE,"/account/**").hasAuthority("REMOVE_ACCOUNT")
+                .antMatchers(HttpMethod.POST,"/users/{^[\\d]$}").hasAuthority("ACTIVATE_DEACTIVATE_USER")
+                .antMatchers(HttpMethod.DELETE,"/account/{^[\\d]$}").hasAuthority("REMOVE_ACCOUNT")
                 .antMatchers(HttpMethod.POST,"/bank").hasAuthority("CREATE_BANK")
                 .anyRequest()
                 .authenticated()

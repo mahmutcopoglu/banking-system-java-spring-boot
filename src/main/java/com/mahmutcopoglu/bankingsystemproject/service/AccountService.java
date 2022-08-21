@@ -2,6 +2,7 @@ package com.mahmutcopoglu.bankingsystemproject.service;
 
 import com.mahmutcopoglu.bankingsystemproject.enums.AccountType;
 import com.mahmutcopoglu.bankingsystemproject.models.Account;
+import com.mahmutcopoglu.bankingsystemproject.models.User;
 
 import java.util.List;
 
@@ -21,6 +22,10 @@ public interface AccountService {
 
     boolean typeControl(AccountType type);
 
-    List<Account> getUserAccounts();
+    List<Account> getLoginUserAccounts();
+
+    List<Account> getUserAccounts(int id);
+
+    List<Account> getAllAccounts();
 
 }

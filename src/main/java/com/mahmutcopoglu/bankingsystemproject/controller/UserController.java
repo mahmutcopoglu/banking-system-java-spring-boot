@@ -57,16 +57,17 @@ public class UserController {
         return ResponseEntity.ok().body(changeEnabledResponse);
     }
 
-    @GetMapping("/user/accounts")
-    public ResponseEntity<?> getUser(){
-        UserDatabase dbUser = (UserDatabase) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User user = this.userService.findById(dbUser.getId());
+    @GetMapping("/user/{id}")
+    public ResponseEntity<?> getUserById(@PathVariable int id){
+        User user = this.userService.findById(id);
         return ResponseEntity.ok().body(user);
     }
 
-    @GetMapping("/user/{id}")
-    public ResponseEntity<?> getUserDetail(@PathVariable int id){
-        User user = this.userService.findById(id);
+
+    @GetMapping("/user")
+    public ResponseEntity<?> getLoginUser(){
+        UserDatabase dbUser = (UserDatabase) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = this.userService.findById(dbUser.getId());
         return ResponseEntity.ok().body(user);
     }
 

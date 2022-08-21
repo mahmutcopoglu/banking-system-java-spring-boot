@@ -26,20 +26,6 @@
         SELECT COUNT(*) FROM user WHERE username = #{username} OR email = #{email}
     </select>
 
-    <select id="getUser" resultMap="userDetailResultMap">
-            SELECT *, account.id as account_id, user.id as user_id, bank.id as bank_id FROM user
-        INNER JOIN account ON account.user = user.id
-        INNER JOIN bank ON bank.id=account.bank WHERE user.id = #{id}
-    </select>
 
-    <resultMap type="User" id="userDetailResultMap" autoMapping="true">
-        <id column="user_id" property="id"/>
-        <collection property="accounts" ofType="Account" autoMapping="true">
-            <id column = "account_id" property = "id"/>
-            <association property="bank" autoMapping = "true">
-                <id column = "bank" property = "id"/>
-            </association>
-        </collection>
-    </resultMap>
 
 </mapper>

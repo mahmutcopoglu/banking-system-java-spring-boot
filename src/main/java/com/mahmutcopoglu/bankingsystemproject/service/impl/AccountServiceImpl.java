@@ -15,9 +15,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -130,9 +127,21 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public List<Account> getUserAccounts() {
+    public List<Account> getLoginUserAccounts() {
         UserDatabase dbUser = (UserDatabase) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Account> accounts = this.accountRepository.findByUserId(dbUser.getId());
+        return accounts;
+    }
+
+    @Override
+    public List<Account> getUserAccounts(int id) {
+        List<Account> accounts = this.accountRepository.findByUserId(id);
+        return accounts;
+    }
+
+    @Override
+    public List<Account> getAllAccounts() {
+        List<Account> accounts = this.accountRepository.getAllAccounts();
         return accounts;
     }
 

@@ -41,14 +41,33 @@
     </resultMap>
 
     <select id="findByUserId" resultType="Account" resultMap="userAccounts">
-        SELECT *, account.id as account_id, bank.id as bank_id
+        SELECT *, account.id as account_id, bank.id as bank_id, user.id as user_id
         FROM account
-        INNER JOIN bank ON bank.id = account.bank WHERE account.user = #{userId}
+        INNER JOIN bank ON bank.id = account.bank
+        INNER JOIN user ON user.id = account.user WHERE account.user = #{userId}
     </select>
 
     <resultMap type="Account" id="userAccounts" autoMapping = "true">
         <association property="bank" autoMapping = "true">
             <id property="id" column="bank_id"/>
+        </association>
+        <association property="user" autoMapping = "true">
+            <id property="id" column="user_id"/>
+        </association>
+    </resultMap>
+
+    <select id="getAllAccounts" resultType="Account" resultMap="allAccounts">
+        SELECT *, account.id as account_id, bank.id as bank_id, user.id as user_id
+        FROM account
+        INNER JOIN bank ON bank.id = account.bank
+        INNER JOIN user ON user.id = account.user WHERE account.is_deleted = false
+    </select>
+    <resultMap type="Account" id="allAccounts" autoMapping = "true">
+        <association property="bank" autoMapping = "true">
+            <id property="id" column="bank_id"/>
+        </association>
+        <association property="user" autoMapping = "true">
+            <id property="id" column="user_id"/>
         </association>
     </resultMap>
 

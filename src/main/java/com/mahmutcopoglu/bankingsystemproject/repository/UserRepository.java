@@ -15,8 +15,6 @@ public interface UserRepository {
 
     User findById(int id);
 
-    User getUser(int id);
-
     int updateEnabled(int enabled, int id);
 
     int isUserExist(String username, String email);
