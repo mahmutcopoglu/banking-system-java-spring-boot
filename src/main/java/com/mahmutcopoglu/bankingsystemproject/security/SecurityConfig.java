@@ -59,6 +59,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers(HttpMethod.POST,"/users/{^[\\d]$}").hasAuthority("ACTIVATE_DEACTIVATE_USER")
                 .antMatchers(HttpMethod.DELETE,"/account/{^[\\d]$}").hasAuthority("REMOVE_ACCOUNT")
+                .antMatchers(HttpMethod.GET,"/accounts").hasAuthority("REMOVE_ACCOUNT")
+                .antMatchers(HttpMethod.GET,"/users").hasAuthority("ACTIVATE_DEACTIVATE_USER")
                 .antMatchers(HttpMethod.POST,"/bank").hasAuthority("CREATE_BANK")
                 .anyRequest()
                 .authenticated()

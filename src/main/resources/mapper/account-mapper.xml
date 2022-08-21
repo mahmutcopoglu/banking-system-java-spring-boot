@@ -44,7 +44,7 @@
         SELECT *, account.id as account_id, bank.id as bank_id, user.id as user_id
         FROM account
         INNER JOIN bank ON bank.id = account.bank
-        INNER JOIN user ON user.id = account.user WHERE account.user = #{userId}
+        INNER JOIN user ON user.id = account.user WHERE account.user = #{userId} AND account.is_deleted = false
     </select>
 
     <resultMap type="Account" id="userAccounts" autoMapping = "true">
